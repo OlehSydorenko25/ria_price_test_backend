@@ -8,6 +8,7 @@ const fetch = require('node-fetch');
 const { db, grupsData } = require('./database/index');
 const { urlGenerator, months, sqlGenerator, getMarks, getRegions, getGearboxes, getFuelType, getBodyType,  getModels, getById } = require('./utils/index');
 const { selectAvgData } = require('./database/dbMethods');
+const PORT = process.env.PORT || 3000
 
 const router = new Router();
 
@@ -173,4 +174,6 @@ router.get('/ad/info', async (ctx) => {
   }
 });
 
-app.listen(3000);
+app.listen(PORT, () => {
+  console.log("started");
+});
